@@ -98,6 +98,26 @@ class LinkedList {
 
 		return temp;
 	}
+
+	// reverse the linked list
+	// complexity O(n)
+	reverse() {
+		// swap head and tail
+		let temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+
+		// working with pointers
+		let next = temp.next;
+		let prev = null;
+
+		for (let i = 0; i < this.length; i += 1) {
+			next = temp.next;
+			temp.next = prev;
+			prev = temp;
+			temp = next;
+		}
+	}
 }
 
 const linkedList = new LinkedList(10);
